@@ -21,11 +21,17 @@ export const quizSlice = createSlice({
     initialState,
     reducers: {
 
+        setAnswer: (state, action) => {
+            const {questionIndex,answer} =action.payload
+            state.userAnswers[questionIndex] =answer
+            console.log(questionIndex,answer);
+         }
+
     }
 })
 
 
-// export const { } = quizSlice.actions
+export const { setAnswer } = quizSlice.actions
 
 // export const selectCount = (state: RootState) => state.counter.value
 
