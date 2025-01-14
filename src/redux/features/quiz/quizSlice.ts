@@ -1,15 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '../quiz/store'
+import { createSlice } from '@reduxjs/toolkit'
+import { quizData } from '@/home/quizData'
 
 
-export interface CounterState {
-    value: number
+export interface IQuiz {
+    question: typeof quizData,
+    currentQuestionIndex: number,
+    userAnswers: (string | null),
+    quizComplete: boolean
 }
-const initialState: CounterState = {
-    value: 0
+const initialState = {
+
+    question: quizData,
+    currentQuestionIndex: 0,
+    userAnswers: Array(quizData.length).fill(null),
+    quizComplete: false
+
 }
-const quizSlice = createSlice({
-    name: '',
+export const quizSlice = createSlice({
+    name: 'quiz',
     initialState,
     reducers: {
 
@@ -17,9 +25,9 @@ const quizSlice = createSlice({
 })
 
 
-export const { } = quizSlice.actions
+// export const { } = quizSlice.actions
 
-export const selectCount = (state: RootState) => state.counter.value
+// export const selectCount = (state: RootState) => state.counter.value
 
 
 export default quizSlice.reducer

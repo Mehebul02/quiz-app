@@ -1,23 +1,28 @@
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { useAppSelector } from "@/redux/hooks";
 
 const Question = () => {
+
+    const { question, currentQuestionIndex } = useAppSelector((state) => state.quiz)
+    const currentQuestion = question[currentQuestionIndex]
+    console.log(currentQuestion);
     return (
         <div>
-          <div>
-            <Card className="w-[350px]">
-                <CardHeader>
-                    <CardTitle>Create project</CardTitle>
-                    <CardDescription>Deploy your new project in one-click.</CardDescription>
-                </CardHeader>
-                <CardContent>
+            <div>
+                <Card className="w-[650px] ">
+                    <CardHeader>
+                        <CardTitle className="font-serif leading-relaxed">{currentQuestion.question}</CardTitle>
+                        <CardDescription>Question :{currentQuestionIndex + 1}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
 
-                </CardContent>
-                <CardFooter className="flex justify-between">
-                  abc
-                </CardFooter>
-            </Card>
-        </div>  
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                        abc
+                    </CardFooter>
+                </Card>
+            </div>
         </div>
     );
 };

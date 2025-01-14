@@ -1,15 +1,16 @@
 
-import './App.css'
 
 import Question from './home/Question'
 
 function App() {
   
   return (
-    <>
-     <Question/>
+  
+    <div className='mt-20 flex justify-center'>
+    <Question/>
+    </div>
       
-    </>
+    
   )
 }
 
