@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { setAnswer } from "@/redux/features/quiz/quizSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import QuizControl from "./QuizControl";
 
 const Question = () => {
 
@@ -37,8 +38,8 @@ const Question = () => {
                         }
 
                     </CardContent>
-                    <CardFooter className="flex justify-between">
-                        abc
+                    <CardFooter className="w-full mx-auto">
+                        <QuizControl/>
                     </CardFooter>
                 </Card>
             </div>

@@ -22,16 +22,28 @@ export const quizSlice = createSlice({
     reducers: {
 
         setAnswer: (state, action) => {
-            const {questionIndex,answer} =action.payload
-            state.userAnswers[questionIndex] =answer
-            console.log(questionIndex,answer);
-         }
+            const { questionIndex, answer } = action.payload
+            state.userAnswers[questionIndex] = answer
+            console.log(questionIndex, answer);
+        },
+        nextQuestion: (state) => {
+
+            if (state.currentQuestionIndex < state.question.length-1) {
+                state.currentQuestionIndex += 1;
+            }
+
+        },
+        previousQuestion:(state)=>{
+            if(state.currentQuestionIndex > 0){
+                state.currentQuestionIndex -=1;
+            }
+        }
 
     }
 })
 
 
-export const { setAnswer } = quizSlice.actions
+export const { setAnswer,nextQuestion, previousQuestion } = quizSlice.actions
 
 // export const selectCount = (state: RootState) => state.counter.value
 
