@@ -10,8 +10,10 @@ const Question = () => {
 
     const dispatch = useAppDispatch()
 
-    const { question, currentQuestionIndex } = useAppSelector((state) => state.quiz)
+    const { question, currentQuestionIndex,userAnswers } = useAppSelector((state) => state.quiz)
     const currentQuestion = question[currentQuestionIndex]
+    const currentAnswer = userAnswers[currentQuestionIndex]
+    console.log(currentAnswer);
     console.log(currentQuestion);
 
     const handleAnswerChange = (answer: string) => {
@@ -31,8 +33,9 @@ const Question = () => {
 
                         {
                             currentQuestion.options.map((option, index) => <Button
-                                onClick={() => handleAnswerChange(option)}
-                                key={index} size={'lg'} className=" w-full mt-3">
+                                onClick={() => handleAnswerChange(option)
+                                }
+                                key={index} size={'lg'} className=" w-full mt-3" variant={option === currentAnswer ? 'default' :'outline'}>
                                 {option}
                             </Button>)
                         }
