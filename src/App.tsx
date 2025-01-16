@@ -1,8 +1,14 @@
 
 
 import Question from './home/Question'
+import Quizsummary from './home/Quizsummary'
+import { useAppSelector } from './redux/hooks'
 
 function App() {
+
+
+      const { quizComplete } = useAppSelector((state) => state.quiz)
+  
   
   return (
   
@@ -11,7 +17,9 @@ function App() {
   Welcome to Quiz World
 </h1>
 
-    <Question/>
+    {
+      !quizComplete ?<Question/>:<Quizsummary/>
+    }
     </div>
       
     
