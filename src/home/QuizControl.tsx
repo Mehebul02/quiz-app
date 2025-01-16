@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { nextQuestion, previousQuestion } from "@/redux/features/quiz/quizSlice";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 const QuizControl = () => {
+    const { question, currentQuestionIndex, userAnswers } = useAppSelector((state) => state.quiz)
     const dispatch = useAppDispatch()
     const handleNextQuestion = () => {
 
@@ -12,9 +13,21 @@ const QuizControl = () => {
     return (
         <div className="flex justify-between mt-6 space-x-96 ">
 
-            <Button onClick={()=>dispatch(previousQuestion())}>Previous</Button>
-            <Button onClick={handleNextQuestion}>Next</Button>
+            <Button
+                disabled={currentQuestionIndex === 0}
+                onClick={() => dispatch(previousQuestion())}>Previous</Button>
+            {
+                currentQuestionIndex < question.length - 1 && (
+                    <Button onClick={handleNextQuestion}>Next</Button>
 
+                )
+            }
+            {
+                currentQuestionIndex === question.length - 1 && (
+                    <Button >Complete Quiz</Button>
+
+                )
+            }
 
         </div>
     );
