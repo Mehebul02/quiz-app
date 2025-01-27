@@ -18,7 +18,7 @@ const Quizsummary = () => {
     return (
         <div className='flex justify-center mt-10'>
 
-            <Card className="w-[450px]">
+            <Card className="w-[450px] p-4">
                 <CardHeader className='text-3xl font-semibold font-serif text-center'>Quiz Summary</CardHeader>
                 <CardContent>
                     <h1 className="text-[18px] text-center font-sans font-medium">You got {correctAnswerCount} out of {question.length}</h1>

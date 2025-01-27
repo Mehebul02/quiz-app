@@ -15,23 +15,28 @@ const QuizControl = () => {
 
     const isCompletedQuiz = answerSelected || currentQuestionIndex !== question.length -1
     return (
-        <div className="flex justify-between mt-6 space-x-96 ">
+        <div className="flex justify-between  w-full">
 
+          
             <Button
                 disabled={currentQuestionIndex === 0}
                 onClick={() => dispatch(previousQuestion())}>Previous</Button>
+           
             {
                 currentQuestionIndex < question.length - 1 && (
                     <Button disabled={!answerSelected} onClick={handleNextQuestion}>Next</Button>
 
                 )
             }
-            {
+           
+           
+           {
                 currentQuestionIndex === question.length - 1 && (
                     <Button disabled={!isCompletedQuiz} onClick={()=>dispatch(completeQuiz())}>Complete Quiz</Button>
 
                 )
             }
+         
 
         </div>
     );

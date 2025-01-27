@@ -23,7 +23,7 @@ const Question = () => {
     return (
         <div>
             <div className="flex justify-center">
-                <Card className="md:w-[650px] ">
+                <Card className="w-[350px] md:w-[650px] ">
                     <img className="w-32 mx-auto" src={logo} alt="logo" />
                     <CardHeader>
                         <CardTitle className="font-serif leading-relaxed">{currentQuestion.question}</CardTitle>
