@@ -3,7 +3,7 @@ import { quizData } from '@/home/quizData'
 
 
 
-export type TQuizData = {
+export type TQuiz = {
     _id: string,
     name: string,
     description: string,
@@ -14,7 +14,7 @@ export type TQuizData = {
 
 
 
-export interface IQuiz {
+export type TQuizData = {
     question: typeof quizData,
     currentQuestionIndex: number,
     userAnswers: (string | null),

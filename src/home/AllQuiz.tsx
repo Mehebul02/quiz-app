@@ -1,5 +1,6 @@
 import { useGetQuizQuery } from "@/redux/api/quizApi";
 import QuizCard from "./QuizCard";
+import { TQuiz } from "@/redux/features/quiz/quizSlice";
 
 const AllQuiz = () => {
     const { data, isLoading } = useGetQuizQuery(undefined);
@@ -10,7 +11,7 @@ const AllQuiz = () => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
-                data?.map((quiz:any,idx:string)=>(
+                data?.map((quiz:TQuiz,idx:string)=>(
                     <QuizCard key={idx} quiz={quiz}/>
                 ))
             }

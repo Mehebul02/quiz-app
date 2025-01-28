@@ -6,17 +6,17 @@ import {
     CardHeader,
     CardTitle,
   } from "@/components/ui/card"
-import { setQuiz } from "@/redux/features/quiz/quizSlice";
+import { setQuiz, TQuizData } from "@/redux/features/quiz/quizSlice";
 import { useDispatch } from "react-redux";
   
 const QuizCard = ({quiz}) => {
   const dispatch = useDispatch()
 
-    const handleQuiz = (questions)=>{
-        console.log(questions);
+    const handleQuiz = (questions:TQuizData[])=>{
+      dispatch(setQuiz(quiz.questions))
     }
     return (
-        <Card onClick={()=>handleQuiz(dispatch(setQuiz(quiz.questions)))} className="p-4 hover:shadow-lg cursor-pointer">
+        <Card onClick={()=>handleQuiz(quiz.question)} className="p-4 hover:shadow-lg cursor-pointer">
   <CardHeader>
     <CardTitle>{quiz.title}</CardTitle>
     <CardDescription>{quiz.description}</CardDescription>
