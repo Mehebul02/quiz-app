@@ -10,7 +10,7 @@ export interface IQuiz {
 }
 const initialState = {
 
-    question: quizData,
+    question: [],
     currentQuestionIndex: 0,
     userAnswers: Array(quizData.length).fill(null),
     quizComplete: false
@@ -28,26 +28,29 @@ export const quizSlice = createSlice({
         },
         nextQuestion: (state) => {
 
-            if (state.currentQuestionIndex < state.question.length-1) {
+            if (state.currentQuestionIndex < state.question.length - 1) {
                 state.currentQuestionIndex += 1;
             }
 
         },
-        previousQuestion:(state)=>{
-            if(state.currentQuestionIndex > 0){
-                state.currentQuestionIndex -=1;
+        previousQuestion: (state) => {
+            if (state.currentQuestionIndex > 0) {
+                state.currentQuestionIndex -= 1;
             }
         },
-        completeQuiz:(state)=>{
+        completeQuiz: (state) => {
             state.quizComplete = true
 
+        },
+        setQuiz: (state, action) => {
+            state.question = action.payload
         }
 
     }
 })
 
 
-export const { setAnswer,nextQuestion, previousQuestion , completeQuiz} = quizSlice.actions
+export const { setAnswer, nextQuestion, previousQuestion, completeQuiz,setQuiz } = quizSlice.actions
 
 // export const selectCount = (state: RootState) => state.counter.value
 

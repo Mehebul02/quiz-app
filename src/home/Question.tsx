@@ -22,7 +22,7 @@ const Question = () => {
     }
     return (
         <div>
-            <div className="flex justify-center">
+            {question.length > 0 && <div className="flex justify-center">
                 <Card className="w-[350px] md:w-[650px] ">
                     <img className="w-32 mx-auto" src={logo} alt="logo" />
                     <CardHeader>
@@ -45,7 +45,7 @@ const Question = () => {
                         <QuizControl/>
                     </CardFooter>
                 </Card>
-            </div>
+            </div>}
         </div >
     );
 };
