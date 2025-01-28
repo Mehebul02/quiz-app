@@ -2,6 +2,18 @@ import { createSlice } from '@reduxjs/toolkit'
 import { quizData } from '@/home/quizData'
 
 
+
+export type TQuizData = {
+    _id: string,
+    name: string,
+    description: string,
+    question: TQuizData[],
+    createAt: string,
+    updateAt: string,
+}
+
+
+
 export interface IQuiz {
     question: typeof quizData,
     currentQuestionIndex: number,
@@ -50,7 +62,7 @@ export const quizSlice = createSlice({
 })
 
 
-export const { setAnswer, nextQuestion, previousQuestion, completeQuiz,setQuiz } = quizSlice.actions
+export const { setAnswer, nextQuestion, previousQuestion, completeQuiz, setQuiz } = quizSlice.actions
 
 // export const selectCount = (state: RootState) => state.counter.value
 
